@@ -13,8 +13,8 @@
 
   &__text-container {
     position: relative;
-    margin: 30px 30px 100px;
-    padding: 30px 30px 50px;
+    margin: 30px 0 100px;
+    padding: 20px 30px 50px;
     background-color: $lighter-grey;
     
     &:before {
@@ -31,8 +31,17 @@
       border-color: transparent transparent $lighter-grey transparent;
     }
   }
+
+  &__heading {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10px;
+    font-weight: 600;
+  }
   
   &__text {
+    padding: 0;
+
     &:after {
       box-shadow: inset $lighter-grey 0px -60px 60px;
       opacity: 0;

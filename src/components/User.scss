@@ -20,9 +20,14 @@
     margin: 0 auto;
     width: $avatar-dimension;
     height: $avatar-dimension;
+    border: 2px solid $lighter-grey;
     border-radius: 100%;
     overflow: hidden;
     line-height: 1;
+
+    .user--review-header & {
+      border-color: $white;
+    }
     
     &-image {
       max-height: 100%;
@@ -31,19 +36,19 @@
   
   &__name {
     margin: 8px 0 0;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: 600;
     
     .user--review-header & {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 14px;
       color: $blue;
     }
   }
   
   &__secondary {
-    margin: 2px 0 0;
-    line-height: 1;
-    font-size: 10px;
+    margin: 5px 0 0;
+    line-height: 1.1;
+    font-size: 8px;
     
     .user--review-header & {
       font-size: 9px;

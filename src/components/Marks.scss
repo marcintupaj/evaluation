@@ -2,18 +2,19 @@
 
 .marks {
   display: flex;
-  margin-top: 20px;
+  margin-bottom: 20px;
   align-items: center;
   justify-content: center;
   
+  $thumb-dimension: 50px;
   &__thumb {
     display: inline-flex;
     background-color: #eee;
     color: $white;
     
-    width: 60px;
-    height: 40px;
-    line-height: 40px;
+    width: 70px;
+    height: $thumb-dimension;
+    line-height: $thumb-dimension;
     font-size: 20px;
     font-weight: 900;
     justify-content: center;
@@ -36,7 +37,7 @@
     align-self: stretch;
   }
   
-  &__thumb+&__stars-container {
+  &__thumb + &__stars-container {
     padding-left: 20px;
   }
   
@@ -75,9 +76,13 @@
 
 .star {
   color: $light-grey;
-  padding: 0 2px;  
+  font-size: 18px;
 
   &--active {
     color: gold;
+  }
+
+  & + & {
+    margin: 0 0 0 10px;
   }
 }

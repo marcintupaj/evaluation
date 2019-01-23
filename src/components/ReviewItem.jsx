@@ -3,7 +3,8 @@ import './Reviews.scss';
 import { User, userTypes } from './User';
 import { Comment } from './Comment';
 import { Marks } from './Marks';
-
+import { CollapseText } from '../common/CollapseText';
+import { COLLAPSE_COLORS } from '../config';
 const currentUser = require('../data/currentUser.json');
 
 export class ReviewItem extends Component {
@@ -11,8 +12,12 @@ export class ReviewItem extends Component {
         comments: [],
         commentText: '',
         isFormExtended: false,
-        isDescriptionExtended: false,
     };
+
+    constructor() {
+        super();
+        this._toggleCommentForm = this._toggleCommentForm.bind(this);
+    }
 
     componentDidMount() {
         this.setState(() => ({
@@ -22,14 +27,14 @@ export class ReviewItem extends Component {
 
     CommentButton = () => 
         <div className="comment__button-container button-container">
-            <span className="btn btn-primary" onClick={this._toggleCommentForm.bind(this)}>
+            <span className="btn btn-primary" onClick={this._toggleCommentForm}>
                 Add comment
             </span>
         </div>
 
     Form = () => 
         <div className="review__comment-form-container">
-            <form onSubmit={(e) => this._onSubmit(e, currentUser)} className="review__comment-form">
+            <form onSubmit={(event) => this._onSubmit(event, currentUser)} className="review__comment-form">
                 <label htmlFor="comment-text" className="review__comment-form-label">Comment</label>
                 <textarea
                     id="comment-text"
@@ -37,17 +42,24 @@ export class ReviewItem extends Component {
                     rows="5"
                     value={this.state.commentText}
                     placeholder="Enter your opinion"
-                    onChange={(e) => this._onTextChange(e)}/>
+                    onChange={(event) => this._onTextChange(event)}/>
                 <button type="submit" className="btn btn-primary">
-                Submit comment</button>
+                    Submit comment
+                </button>
             </form>
         </div>
+    
+    CommentsSection = () => !this.state.comments.length // remove condition to handle multiple comments
+        ? <this.CommentsFormSection/>
+        : null
+
+    CommentsFormSection = () => !this.state.isFormExtended
+        ? <this.CommentButton />
+        : <this.Form />
 
     render() {
         const {
             comments,
-            isDescriptionExtended,
-            isFormExtended,
         } = this.state;
 
         const {
@@ -57,17 +69,14 @@ export class ReviewItem extends Component {
         return (
             <li className="review__item">
                 <User classList="user--review-header" user={review.author} userType={userTypes.DATE}/>
+                <h2 className="review__title">{review.title}</h2>
                 <Marks marks={review.marks}/>
-                <h3 className="review__title">{review.title}</h3>
-                <p className={`review__description ${isDescriptionExtended && 'review__description--extended'}`}
-                    onClick={this._toggleDescription.bind(this)}>
-                    {review.text}
-                </p>
-                {
-                    !isFormExtended
-                    ? <this.CommentButton />
-                    : <this.Form />
-                }
+                <CollapseText height={100} color={COLLAPSE_COLORS.WHITE}>
+                    <p className="review__description">
+                        {review.text}
+                    </p>
+                </CollapseText>
+                <this.CommentsSection />
                 <ul className="comments">
                     { 
                         comments.map(comment => 
@@ -75,7 +84,7 @@ export class ReviewItem extends Component {
                     }
                 </ul>
             </li>
-        )
+        );
     }
 
     _onTextChange(event) {
@@ -99,7 +108,7 @@ export class ReviewItem extends Component {
         this.setState(prevState => ({
             comments: [
                 {
-                    id: Math.random().toString(36).substr(2, 9), // fake id
+                    id: this._getRandomId(),
                     author: {
                         ...user,
                         addedDate: new Date().getTime(),
@@ -123,9 +132,7 @@ export class ReviewItem extends Component {
         }));
     }
 
-    _toggleDescription() {
-        this.setState(prevState => ({
-            isDescriptionExtended: !prevState.isDescriptionExtended,
-        }));
+    _getRandomId() {
+        return Math.random().toString(36).substr(2, 9);
     }
 }

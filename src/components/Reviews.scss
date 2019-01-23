@@ -23,12 +23,13 @@ $review-vertical-indent: 100px;
     display: flex;
     background-color: $white;
     min-height: 300px;
-    width: 500px;
+    width: 625px;
+    padding: 0 50px;
     text-align: center;
     flex-direction: column;
     box-shadow: #3b3b3b0a 0 0 10px 10px;
     
-    &+& {
+    & + & {
       margin-top: 50px;
     }
   }
@@ -37,42 +38,18 @@ $review-vertical-indent: 100px;
     display: block;
     width: 100%;
     margin: 15px 0;
+    padding: 0 30px;
     text-align: center;
     font-weight: 200;
   }
   
   &__description {
+    max-width: 520px;
+    margin: 0 auto;
     padding: 0 30px;
-    max-height: 200px;
-    overflow: hidden;
     position: relative;
     font-size: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: justify;
-
-    &:after {
-      content: "";
-      z-index: 3;
-      display: block;
-      position: absolute;
-      top: 100%;
-      left: -30px;
-      right: -30px;
-      height: 60px;
-      box-shadow: inset #fff 0px -60px 60px;
-      transform: translateY(-40px);
-      opacity: 1;
-      transition: all .3s ease;
-    }
-    
-    &--extended {
-      max-height: none;
-      
-      &:after {
-        opacity: 0;
-      }
-    }
+    text-align: left;
   }
   
   &__comment-form-container {
