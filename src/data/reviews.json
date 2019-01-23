@@ -1,0 +1,45 @@
+[
+    {
+        "id": 123,
+        "title": "Lorem ipsum",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit quidem maxime blanditiis adipisci ducimus nihil esse doloremque, deserunt libero beatae fugit repellat corporis impedit consequatur ad dignissimos eaque autem. Quas vero non vel quos quaerat aspernatur vitae numquam aliquid, saepe voluptas omnis, beatae inventore harum cumque provident. Placeat, ipsum nam autem incidunt reprehenderit repellendus sed omnis vero libero tempore unde tenetur. Odit reprehenderit nihil et maiores praesentium. Cupiditate, odio fuga porro dolore fugit quam, mollitia ea culpa voluptatem dolor ipsa repudiandae corporis praesentium eius quia deleniti possimus facilis, tempora ipsum. Nulla, aliquid maxime animi ipsum ab quasi laboriosam hic?",
+        "author": {
+            "name": "Jane Doe",
+            "position": "CEO",
+            "avatar": "https://randomuser.me/api/portraits/women/12.jpg",
+            "addedDate": 1474322400000
+        },
+        "marks": {
+            "positive": true,
+            "scored": 5
+        },
+        "comments": [
+            {
+                "id": "asd13a",
+                "author": {
+                    "name": "Kathy Houston",
+                    "position": "Customer",
+                    "avatar": "https://randomuser.me/api/portraits/women/11.jpg",
+                    "addedDate": 1474322400000
+                },
+                "text": "Cupiditate, odio fuga porro dolore fugit quam, mollitia ea culpa voluptatem dolor ipsa repudiandae corporis praesentium eius quia deleniti possimus facilis, tempora ipsum. Nulla, aliquid maxime animi ipsum ab quasi laboriosam hic?"
+            }
+        ]
+    },
+    {
+        "id": 4465,
+        "title": "dolor sit amet",
+        "text": "Cupiditate, odio fuga porro dolore fugit quam, mollitia ea culpa voluptatem dolor ipsa repudiandae corporis praesentium eius quia deleniti possimus facilis, tempora ipsum. Nulla, aliquid maxime animi ipsum ab quasi laboriosam hic? Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit quidem maxime blanditiis adipisci ducimus nihil esse doloremque, deserunt libero beatae fugit repellat corporis impedit consequatur ad dignissimos eaque autem. Quas vero non vel quos quaerat aspernatur vitae numquam aliquid, saepe voluptas omnis, beatae inventore harum cumque provident. Placeat, ipsum nam autem incidunt reprehenderit repellendus sed omnis vero libero tempore unde tenetur. Odit reprehenderit nihil et maiores praesentium.",
+        "author": {
+            "name": "Jessica Jay",
+            "position": "CEO",
+            "avatar": "https://randomuser.me/api/portraits/women/13.jpg",
+            "addedDate": 1474322400000
+        },
+        "marks": {
+            "positive": false,
+            "scored": 2
+        },
+        "comments": []
+    }
+]
